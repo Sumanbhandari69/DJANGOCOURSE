@@ -50,6 +50,22 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+if DEBUG:
+    INSTALLED_APPS += ["debug_toolbar"] # enough if not running docker
+
+    MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"] # enough if not running docker
+
+    import socket
+
+    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+
+    docker_ips = [ip[:-1] + "1" for ip in ips]
+
+    INTERNAL_IPS = docker_ips + ["127.0.0.1"]
+
+
+    
+
 ROOT_URLCONF = 'djangocourse.urls'
 
 TEMPLATES = [
