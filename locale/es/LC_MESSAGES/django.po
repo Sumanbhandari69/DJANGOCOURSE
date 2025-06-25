@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-25 11:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
+
+#: learn/managers.py:7
+msgid "The Email must be set"
+msgstr ""
+
+#: learn/managers.py:19
+msgid "SuperUser must have is_staff = True"
+msgstr ""
+
+#: learn/managers.py:21
+msgid "SuperUser must have is_superuser = True"
+msgstr ""
+
+#: learn/models.py:16
+msgid "email address"
+msgstr "dirección de correo electrónico"
+
+#: learn/models.py:24
+msgid "Article"
+msgstr "Artículo"
+
+#: learn/models.py:25
+msgid "Articles"
+msgstr "Artículos"
+
+#: learn/models.py:26
+msgid "title"
+msgstr "título"
+
+#: learn/models.py:27
+msgid "content"
+msgstr "contenido"
+
+#: learn/models.py:28
+msgid "word_count"
+msgstr "recuento_palabras"
+
+#: learn/models.py:29
+msgid "twitter_post"
+msgstr "twitter_post"
+
+#: learn/models.py:31
+msgid "status"
+msgstr "estado"
+
+#: learn/models.py:36
+msgid "created_at"
+msgstr "creado en"
+
+#: learn/models.py:37
+msgid "updated_at"
+msgstr "actualizado en"
+
+#: learn/models.py:38
+msgid "creator"
+msgstr "creador"

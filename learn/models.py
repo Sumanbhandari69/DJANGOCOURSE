@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 import re
+from django.conf import settings
+from django.utils.translation import gettext_lazy as _
+from learn.managers import UserProfileManager
 # Create your models here.
 
 ARTICLE_STATUS = (
@@ -10,20 +13,32 @@ ARTICLE_STATUS = (
         )
 
 class UserProfile(AbstractUser):
-    pass
+    email = models.EmailField(_("email address"), max_length=255, unique=True)
+    objects = UserProfileManager()
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
 
 class Article(models.Model):
-    title = models.CharField(max_length=100)
-    content =models.TextField(blank=True, default="")
-    word_count = models.IntegerField(blank=True, default=0)
-    twitter_post = models.TextField(blank=True, default="")
+
+    class Meta:
+        verbose_name =_("Article")
+        verbose_name_plural = _("Articles")
+    title = models.CharField(_("title"), max_length=100)
+    content =models.TextField(_("content"), blank=True, default="")
+    word_count = models.IntegerField(_("word_count"), blank=True, default=0)
+    twitter_post = models.TextField(_("twitter_post"), blank=True, default="")
     status = models.CharField(
+        _("status"),
         max_length=20, 
         choices= ARTICLE_STATUS,
         default= "draft",
     )
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(_("created_at"), auto_now_add=True)
+    updated_at = models.DateTimeField(_("updated_at"), auto_now=True)
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL,verbose_name=_("creator"),
+                                 on_delete=models.CASCADE,
+                                 related_name= "articles"
+                                 )
 
     def save(self, *args, **kwargs):
         text = re.sub(r"<[^>]*>", "", self.content).replace("&nbsp;", " ")
