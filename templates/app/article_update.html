@@ -1,4 +1,4 @@
-{% extends "app/base.html" %}
+{% extends "app/layouts/base_form.html" %}
 
 {% block content %}
     <h1>Edit Article</h1>
@@ -17,3 +17,4 @@
     <a href="{% url 'home' %}">Back to list</a>
     <a href="{% url 'delete_article' pk=article.id %}">Delete article</a>
 {% endblock content %}
+
