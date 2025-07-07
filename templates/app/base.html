@@ -35,14 +35,13 @@
           </form>
           {% else %}
           <a class='button secondary text-sm' href="{% url 'account_login'%}">Log in</a>
-          <a class='button primary text-sm' href="{% url 'signup'%}">Sign up</a>
+          <a class='button primary text-sm' href="{% url 'account_signup'%}">Sign up</a>
           {% endif %}
       </div>
     </nav>
-    <p class="font-semibold text-red-500">Is this bold and red?</p>
 
     {% block content%} {% endblock content%}
-    <footer>Common footer</footer>
+    
 
     {% block page_js%} {% endblock page_js%}
   </body>
