@@ -7,6 +7,7 @@ from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from typing import Any
+from django.contrib import messages
 
 # def home(request):
 #     return HttpResponse("Hello, World!")
@@ -51,9 +52,14 @@ class ArticleDeleteView(LoginRequiredMixin,UserPassesTestMixin, DeleteView):
     model = Article
     success_url = reverse_lazy("home")
     context_object_name = "article"
+    
 
     def test_func(self) -> bool | None:
         return self.request.user == self.get_object().creator
+    
+    def post(self, request, *args, **kwargs):
+        messages.success(request, "Article deleted successfully.", extra_tags="destructive")
+        return super().post(request, *args, **kwargs)
 
 # def create_article(request):
 #     if request.method == "POST":

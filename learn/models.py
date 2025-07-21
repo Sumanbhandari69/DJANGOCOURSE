@@ -8,7 +8,7 @@ from learn.managers import UserProfileManager
 
 ARTICLE_STATUS = (
         ("draft", "draft"),
-        ("in progress", "in progress"), 
+        ("in_progress", "in progress"), 
         ("published", "published"),
         )
 

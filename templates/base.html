@@ -12,6 +12,8 @@
       href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+
     {% block extra_head %}
 
     {% endblock extra_head %}
@@ -44,6 +46,14 @@
         </div>
       </nav>
       <div class="p-2 md:p-4 lg:p-6">
+      <div class="flex justify-center mt-2 text-gray-500 font-bold">
+          {% if messages %}
+            <ul>
+              {% for message in messages %}
+                <li class="border p-2 border-gray-400 bg-gray-200 rounded-md {{ message.tags }}">{{ message }}</li>
+              {% endfor %}
+          {% endif %}
+      </div>
         {% block base_content%} 
         
         {% endblock base_content%}

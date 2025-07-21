@@ -54,7 +54,7 @@
     @apply w-full rounded-md p-2
 }
 
-.error{
+.error, .destructive{
     @apply bg-red-50 border border-red-300 text-red-700 text-sm rounded-md p-2 mt-2;
 }
 
@@ -76,4 +76,16 @@ input[type="radio"]{
 
 .allauth-form p:has(input[type="email"]){
     @apply font-bold;
+}
+
+.article-status-draft{
+    @apply bg-gray-200;
+}
+
+.article-status-published{
+    @apply bg-green-200;
+}
+
+.article-status-in_progress{
+    @apply bg-amber-200;
 }
