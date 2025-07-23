@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from typing import Any
 from django.contrib import messages
+import time
 
 # def home(request):
 #     return HttpResponse("Hello, World!")
@@ -22,9 +23,15 @@ class ArticleListView(LoginRequiredMixin, ListView):
     template_name = "app/home.html"
     model = Article
     context_object_name = "articles"
+    paginate_by = 5
 
-    def get_queryset(self) -> QuerySet[Any]:
-        return Article.objects.filter(creator = self.request.user).order_by("-created_at")
+    def get_queryset(self) -> QuerySet[Any]: 
+        time.sleep(2)
+        search = self.request.GET.get("search")
+        queryset = super().get_queryset().filter(creator=self.request.user)
+        if search:
+            queryset=queryset.filter(title__search=search)
+        return queryset.order_by("-created_at")
 
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):

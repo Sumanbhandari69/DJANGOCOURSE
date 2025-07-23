@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-5xi4eef&d88e$q!_rbe1yvw996388hqn)2+rb@mjs_ey^ovb#-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.90','localhost','127.0.0.1']
 
 AUTHENTICATED_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend"
@@ -39,6 +39,7 @@ DJANGO_APPS = [
     # "learn.apps.LearnConfig",
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.postgres',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
