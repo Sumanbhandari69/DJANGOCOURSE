@@ -14,6 +14,8 @@ from pathlib import Path
 import dj_database_url
 import os
 
+
+
 ENV_STATE = os.getenv("ENV_STATE")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,12 +34,12 @@ DEBUG = os.getenv("DEBUG","False") == "True"
 ADMIN_URL = os.getenv("ADMIN_URL","admin")
 
 if ENV_STATE == "production":
-    SESSION_COOKIE_sECURE = True
+    SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = ['*']
 
-AUTHENTICATED_BACKENDS = [
+AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend"
 ]
 
@@ -162,13 +164,13 @@ ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True
-ACCOUNT_EMAIL_VERFICATION ="none"
+ACCOUNT_EMAIL_VERIFICATION = "none"
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'es'
+LANGUAGE_CODE = 'es-us'
 
 TIME_ZONE = 'UTC'
 
