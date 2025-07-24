@@ -160,11 +160,18 @@ LOGOUT_REDIRECT_URL = "account_login"
 
 # Allauth_settings
 
-ACCOUNT_AUTHENTICATION_METHOD = "email"
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = True
+# django-allauth modern configuration
+ACCOUNT_LOGIN_METHODS = {"email"}  # or {"email", "username"} if you want both
+
+ACCOUNT_SIGNUP_FIELDS = [
+    "email*",
+    "username*",
+    "password1*",
+    "password2*"
+]
+
 ACCOUNT_EMAIL_VERIFICATION = "none"
+
 
 
 # Internationalization
