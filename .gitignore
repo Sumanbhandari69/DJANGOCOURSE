@@ -23,3 +23,6 @@ staticfiles/
 
 # Windows
 Thumbs.db
+
+.env.docker
+node_modules
